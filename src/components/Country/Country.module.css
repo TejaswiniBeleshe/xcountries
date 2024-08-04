@@ -1,12 +1,24 @@
-.card{
+/* .countryCard{
     border: 1.5px solid rgb(98, 96, 96);
     padding:.5rem;
     width:85%;
     min-height: 60%;
-    /* height:30px;
-    width:20%; */
-}
-.card img{
+    
+} */
+
+/* .countryCard img{
     max-height: 70%;
     width:100%;
+} */
+
+.countryCard{
+    border: 1.5px solid rgb(98, 96, 96);
+    padding: .5rem;
+    height: 150px;
+    width: 12%;
+    padding: .5rem;
+}
+.countryCard img{
+    max-height: 70%;
+    width: 100%;
 }
