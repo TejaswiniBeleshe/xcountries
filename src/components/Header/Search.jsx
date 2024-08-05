@@ -5,7 +5,7 @@ import { context } from "../Countries/Countries";
 const Search = ()=>{
     let {ip,setIp} = useContext(context);
     return(
-        <input type="text" id={styles.ip} placeholder="Search for countries" value={ip} onChange={(e)=>{
+        <input type="text" id={styles.ip} placeholder="Search for countries..." value={ip} onChange={(e)=>{
             // if(ip.length === 0){
             //     let txt = e.target.value;
             //     txt = txt.toUpperCase();
