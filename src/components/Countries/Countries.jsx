@@ -18,9 +18,9 @@ const Countries = ()=>{
     
     let fetchData = async()=>{
         try{
-            let res = await fetch("https://xcountries-backend.azurewebsites.net/all");
+            let res = await fetch("https://restcountries.com/v3.1/all");
             let data = await res.json();
-            console.log(data[0]);
+            console.log(data);
             setCountries(data);
             setDisplayData(data)
         }
@@ -35,7 +35,7 @@ const Countries = ()=>{
     
     let arr = useMemo(()=>{
         return countries.filter((ele)=>{
-            return ele.name.includes(serchData);
+            return ele.name.common.includes(serchData);
         })
     },[serchData]);
     
@@ -61,7 +61,7 @@ const Countries = ()=>{
         {serchData}
         <div className={styles.parent}>
             {
-                displayData.map((ele)=><Country name={ele.name} text={ele.abbr} flag={ele.flag}/>)
+                displayData.map((ele)=><Country name={ele.name.common} text={ele.name.common} flag={ele.flags.png}/>)
             }
         </div>
         </context.Provider>
