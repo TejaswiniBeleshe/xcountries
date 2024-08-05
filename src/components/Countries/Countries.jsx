@@ -35,7 +35,8 @@ const Countries = ()=>{
     
     let arr = useMemo(()=>{
         return countries.filter((ele)=>{
-            return ele.name.common.includes(serchData);
+            let d1 = ele.name.common.toLowerCase()
+            return d1.includes(serchData.toLowerCase());
         })
     },[serchData]);
     
