@@ -58,7 +58,7 @@ const Countries = ()=>{
     return(
         <context.Provider value={{ip,setIp}}>
         <Header/>
-        {serchData}
+        {/* {serchData} */}
         <div className={styles.parent}>
             {
                 displayData.map((ele)=><Country name={ele.name.common} text={ele.name.common} flag={ele.flags.png}/>)
