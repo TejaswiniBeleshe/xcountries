@@ -9,7 +9,7 @@ const Search = ()=>{
             if(ip.length === 0){
                 let txt = e.target.value;
                 txt = txt.toUpperCase();
-                setIp(txt);
+                setIp(txt)
             }else setIp(e.target.value)
            
         }} />

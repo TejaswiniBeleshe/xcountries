@@ -13,10 +13,11 @@ const Countries = ()=>{
     const [countries,setCountries] = useState([]);
     const [displayData,setDisplayData] = useState([])
     const [ip,setIp] = useState('');
+    const [serchData,setSeachData] = useState('');
+    const [timer,setTimer] = useState('');
     
     let fetchData = async()=>{
         try{
-
             let res = await fetch("https://xcountries-backend.azurewebsites.net/all");
             let data = await res.json();
             console.log(data[0]);
@@ -34,18 +35,30 @@ const Countries = ()=>{
     
     let arr = useMemo(()=>{
         return countries.filter((ele)=>{
-            return ele.name === ip;
+            return ele.name.includes(serchData);
         })
-    },[ip]);
+    },[serchData]);
+    
+    useEffect(()=>{
+        setDisplayData(arr);
+    },[serchData])
 
     useEffect(()=>{
-        console.log(ip);
-         setDisplayData(arr);
+        let res;
+        res = setTimeout(()=>{
+            setSeachData(ip);
+            console.log('set')
+        },800);
+        setTimer(res);
+        return ()=>{
+            clearTimeout(timer)
+        }
     },[ip])
-     
+    
     return(
         <context.Provider value={{ip,setIp}}>
         <Header/>
+        {serchData}
         <div className={styles.parent}>
             {
                 displayData.map((ele)=><Country name={ele.name} text={ele.abbr} flag={ele.flag}/>)
