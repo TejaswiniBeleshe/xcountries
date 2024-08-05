@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "../Country/Country.module.css"
+import "../Country/Country.css"
 const Country = ({name,flag,text})=>{
     return(
-        <div className={styles.countryCard}>
+        <div className="countryCard">
             <img src={flag} alt={text}/>
             <h3>{name}</h3>      
         </div>
